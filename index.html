@@ -63,14 +63,72 @@
             padding: 1.5rem;
         }
         .activity {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             border-left: 4px solid var(--secondary-color);
             padding-left: 1rem;
         }
         .activity h3 {
-            margin-top: 0;
+            margin-top: 1rem;
             color: var(--primary-color);
         }
+        
+        /* Estilos del Carrusel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background-color: #ddd;
+        }
+        @media (min-width: 768px) {
+            .carousel-container {
+                height: 350px;
+            }
+        }
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.4s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        .carousel-btn.next {
+            right: 10px;
+        }
+
         .info-box {
             background-color: var(--light-gray);
             border: 1px solid #e1e4e8;
@@ -117,12 +175,6 @@
         .map-btn:hover {
             background-color: #1a252f;
         }
-        .cover-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            background-color: #ddd; /* Por si tarda en cargar */
-        }
         .tips {
             background-color: #fff3cd;
             color: #856404;
@@ -142,16 +194,28 @@
     </header>
 
     <div class="container">
+        
         <!-- DÍA 1 -->
         <article class="day-card">
-            <!-- Foto real de Trigueros del Valle -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Castillo_de_Trigueros_del_Valle_%28Valladolid%29.jpg" alt="Castillo de Trigueros del Valle" class="cover-img">
             <div class="day-header">
                 <h2>Día 1: Ruta de la Fantasía</h2>
                 <span>Norte de Valladolid</span>
             </div>
             <div class="day-content">
                 <div class="activity">
+                    <!-- Carrusel: Castillo Encantado -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-castillo">
+                            <div class="carousel-slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnNGYHPnrZJbUr4oNBo2ARSnw-9PX5tuAYVhLkOWbpw4r6I_6UJN6afkU1Qj_P_Sp6jWpVhIaR2Y1SLwXVQ53cupIEj0gAJPtMuyz61hrp9oYb5BN9Bp-y8_q75ChF0F_1_O81ZXw=s1360-w1360-h1020-rw" alt="Castillo Encantado"></div>
+                            <div class="carousel-slide"><img src="https://www.elcastilloencantado.es/wp-content/gallery/galeria-actualizacion/DSC0634.jpg" alt="Castillo Encantado 2"></div>
+                            <div class="carousel-slide"><img src="https://www.elcastilloencantado.es/wp-content/gallery/galeria-actualizacion/1719511951505.JPG" alt="Castillo Encantado 3"></div>
+                            <div class="carousel-slide"><img src="https://www.elcastilloencantado.es/wp-content/gallery/galeria-actualizacion/DSC0044.jpg" alt="Castillo Encantado 4"></div>
+                            <div class="carousel-slide"><img src="https://www.elcastilloencantado.es/wp-content/gallery/galeria-actualizacion/DSC0585.jpg" alt="Castillo Encantado 5"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-castillo', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-castillo', 1)">&#10095;</button>
+                    </div>
+                    
                     <h3>Mañana: El Castillo Encantado (Trigueros del Valle)</h3>
                     <p>Una fortaleza del siglo XV tomada por criaturas mágicas. Podréis recorrer las murallas y descubrir laboratorios de pociones ocultos. Ideal para interactuar con la historia de forma lúdica.</p>
                     <div class="info-box">
@@ -164,6 +228,18 @@
                 </div>
                 
                 <div class="activity">
+                    <!-- Carrusel: Puerto Espacial -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-puerto">
+                            <div class="carousel-slide"><img src="https://www.puertoespacial.es/wp-content/gallery/puerto-espacial-1/IMG_2311.jpg?t=1667959555" alt="Puerto Espacial"></div>
+                            <div class="carousel-slide"><img src="https://www.puertoespacial.es/wp-content/gallery/puerto-espacial-1/IMG_2323.jpg?t=1667959555" alt="Puerto Espacial 2"></div>
+                            <div class="carousel-slide"><img src="https://www.puertoespacial.es/wp-content/gallery/puerto-espacial-1/34ed3c27-55ee-45b8-ae8b-ccaf45f66c20.JPG?t=1667959555" alt="Puerto Espacial 3"></div>
+                            <div class="carousel-slide"><img src="https://www.puertoespacial.es/wp-content/gallery/puerto-espacial-1/Foto-23-9-21-20-38-25.jpg?t=1667959556" alt="Puerto Espacial 4"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-puerto', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-puerto', 1)">&#10095;</button>
+                    </div>
+
                     <h3>Tarde: Puerto Espacial (Valoria la Buena)</h3>
                     <p>Exposición inmersiva de ciencia ficción con figuras a escala real. Atravesaréis una cantina galáctica y un hangar de naves espaciales.</p>
                     <div class="info-box">
@@ -171,7 +247,7 @@
                             <li><strong>💰 Precio:</strong> General ~9.50€ | Reducida ~7.50€. Existen packs combinados si compráis entrada también para el Castillo.</li>
                             <li><strong>📅 Reserva:</strong> Recomendable reserva previa online.</li>
                         </ul>
-                        <a href="https://www.puertoespacial.com/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                        <a href="https://www.puertoespacial.es/" target="_blank" class="btn-link">Ver Web Oficial</a>
                     </div>
                 </div>
                 
@@ -184,14 +260,23 @@
 
         <!-- DÍA 2 -->
         <article class="day-card">
-            <!-- Foto real de Peñafiel -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Castillo_de_Pe%C3%B1afiel.jpg" alt="Castillo de Peñafiel" class="cover-img">
             <div class="day-header">
                 <h2>Día 2: Historia y Naturaleza</h2>
                 <span>Este de Valladolid</span>
             </div>
             <div class="day-content">
                 <div class="activity">
+                    <!-- Carrusel: Castillo de Peñafiel -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-penafiel">
+                            <div class="carousel-slide"><img src="https://www.civitatis.com/f/espana/penafiel/visita-guiada-castillo-penafiel-museo-vino-589x392.jpg" alt="Castillo de Peñafiel"></div>
+                            <div class="carousel-slide"><img src="https://spainheritageimg.s3.eu-west-3.amazonaws.com/files/imagenes/visitas_castillos/607/50755-peafiel_2.webp" alt="Castillo de Peñafiel 2"></div>
+                            <div class="carousel-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBCJoEMnPV7tS1a2rcMlsNh6yLUsLB6JlogXQKg7rp_vfUMoQdeb8VFn9x&s=10" alt="Castillo de Peñafiel 3"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-penafiel', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-penafiel', 1)">&#10095;</button>
+                    </div>
+
                     <h3>Mañana: Castillo de Peñafiel (Museo del Vino)</h3>
                     <p>Conocido como el "buque de piedra", este imponente castillo domina la Ribera del Duero y alberga el Museo Provincial del Vino. Las vistas desde sus patios son inmejorables.</p>
                     <div class="info-box">
@@ -199,11 +284,23 @@
                             <li><strong>💰 Precio:</strong> Visita al castillo + museo ~6.60€ | Menores de 12 años suelen entrar gratis.</li>
                             <li><strong>📅 Reserva:</strong> Necesaria si queréis hacer la visita guiada o cata; si es visita libre, se puede comprar en taquilla, pero mejor online para evitar filas.</li>
                         </ul>
-                        <a href="https://www.valladolidesvino.es/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                        <a href="https://www.turismocastillayleon.com/es/patrimonio-cultura/castillo-penafiel" target="_blank" class="btn-link">Ver Web Oficial</a>
                     </div>
                 </div>
                 
                 <div class="activity">
+                    <!-- Carrusel: Valle de los 6 Sentidos -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-sentidos">
+                            <div class="carousel-slide"><img src="https://mifamiliaviajera.com/wp-content/uploads/2018/06/img_20171022_130316.jpg" alt="Valle 6 Sentidos"></div>
+                            <div class="carousel-slide"><img src="https://valladolidentradas.es/wp-content/uploads/2025/03/galeria-valle-6-3.jpg" alt="Valle 6 Sentidos 2"></div>
+                            <div class="carousel-slide"><img src="https://bdu.es/wp-content/uploads/2024/06/01-6Sentidos-opt.webp" alt="Valle 6 Sentidos 3"></div>
+                            <div class="carousel-slide"><img src="https://media-cdn.tripadvisor.com/media/photo-p/08/73/31/18/el-valle-de-los-seis.jpg" alt="Valle 6 Sentidos 4"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-sentidos', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-sentidos', 1)">&#10095;</button>
+                    </div>
+
                     <h3>Tarde: El Valle de los 6 Sentidos (Renedo de Esgueva)</h3>
                     <p>Un enorme parque en la naturaleza con más de 60 juegos, puentes y tirolinas. El entorno perfecto para correr y quemar energías antes de regresar a casa.</p>
                     <div class="info-box">
@@ -211,7 +308,7 @@
                             <li><strong>💰 Precio:</strong> Adultos ~4€ | Niños (3 a 16 años) ~3€.</li>
                             <li><strong>📅 Reserva:</strong> No suele ser estrictamente necesaria, la taquilla funciona bien.</li>
                         </ul>
-                        <a href="https://www.diputaciondevalladolid.es/valle-de-los-seis-sentidos" target="_blank" class="btn-link">Ver Web Oficial</a>
+                        <a href="https://www.terranostrum.es/turismo/el-valle-de-los-seis-sentidos" target="_blank" class="btn-link">Ver Web Oficial</a>
                     </div>
                 </div>
                 
@@ -224,14 +321,23 @@
 
         <!-- DÍA 3 -->
         <article class="day-card">
-            <!-- Foto real Parque Mudéjar -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Parque_tem%C3%A1tico_del_Mud%C3%A9jar.jpg" alt="Parque Temático del Mudéjar en Olmedo" class="cover-img">
             <div class="day-header">
                 <h2>Día 3: Arquitectura en Miniatura</h2>
                 <span>Sur de Valladolid</span>
             </div>
             <div class="day-content">
                 <div class="activity">
+                    <!-- Carrusel: Parque Mudéjar -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-mudejar">
+                            <div class="carousel-slide"><img src="https://www.terranostrum.es/images/content/full/parque-tematico-del-mudejar-castilla-y-leon-3.jpg" alt="Parque Mudéjar"></div>
+                            <div class="carousel-slide"><img src="https://www.terranostrum.es/images/content/full/parque-tematico-del-mudejar-castilla-y-leon-5.jpg" alt="Parque Mudéjar 2"></div>
+                            <div class="carousel-slide"><img src="https://media-cdn.tripadvisor.com/media/photo-s/10/53/4d/46/parque-tematico-del-mudejar.jpg" alt="Parque Mudéjar 3"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-mudejar', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-mudejar', 1)">&#10095;</button>
+                    </div>
+
                     <h3>Mañana: Parque Temático del Mudéjar (Olmedo)</h3>
                     <p>Un paseo por un reino de gigantes. Reúne réplicas exactas a escala de los edificios de ladrillo más emblemáticos. Cuenta con trenes en miniatura y castillos a la medida de los más pequeños.</p>
                     <div class="info-box">
@@ -239,7 +345,7 @@
                             <li><strong>💰 Precio:</strong> General ~4.50€ | Reducida (niños y mayores de 65 años) ~3.50€.</li>
                             <li><strong>📅 Reserva:</strong> Se pueden adquirir directamente en taquilla sin problema.</li>
                         </ul>
-                        <a href="https://www.pasionalmudejar.com/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                        <a href="https://www.olmedo.es/pasionmudejar/" target="_blank" class="btn-link">Ver Web Oficial</a>
                     </div>
                 </div>
                 
@@ -252,19 +358,29 @@
 
         <!-- DÍA 4 -->
         <article class="day-card">
-            <!-- Foto real Santillana / Comillas -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Colegiata_de_Santillana_del_Mar_01.jpg" alt="Colegiata de Santillana del Mar" class="cover-img">
             <div class="day-header">
                 <h2>Día 4: El Cantábrico Accesible</h2>
                 <span>Santillana del Mar y Comillas</span>
             </div>
             <div class="day-content">
                 <div class="activity">
+                    <!-- Carrusel: Santillana y Altamira -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-santillana">
+                            <div class="carousel-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR69noYC_AJSsHOCQ2VN2c4C3peic5PQLqvDoCU_dbJKGqiChQtd6P0SfzA&s=10" alt="Santillana"></div>
+                            <div class="carousel-slide"><img src="https://cdn.getyourguide.com/image/format=auto,fit=crop,gravity=auto,quality=60,width=375,height=375,dpr=2/tour_img/46ea9e7802bcec96f01447e96db3b9723e2d94793328af172ac7d8481afcbe46.png" alt="Altamira"></div>
+                            <div class="carousel-slide"><img src="https://cruisesantander.es/wp-content/uploads/2021/12/santillana-del-mar-1024x683.jpg" alt="Santillana 2"></div>
+                            <div class="carousel-slide"><img src="https://media.lospueblosmasbonitosdeespana.org/pueblos/8/santillana-del-mar-foto-01.jpg" alt="Santillana 3"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-santillana', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-santillana', 1)">&#10095;</button>
+                    </div>
+
                     <h3>Mañana: Santillana del Mar y Altamira</h3>
                     <p>Un paseo tranquilo por las calles medievales de Santillana (requiere calzado cómodo por el empedrado) y visita a la Neocueva para ver los bisontes paleolíticos.</p>
                     <div class="info-box">
                         <ul>
-                            <li><strong>💰 Precio Altamira:</strong> General 3€ | Gratis para menores de 18 y mayores de 65 (ideal para Milo y Teresa). Además, es gratis para todos los sábados desde las 14:00 y los domingos.</li>
+                            <li><strong>💰 Precio Altamira:</strong> General 3€ | Gratis para menores de 18 y mayores de 65. Además, es gratis para todos los sábados desde las 14:00 y los domingos.</li>
                             <li><strong>📅 Reserva Altamira:</strong> <strong>Imprescindible</strong> comprar la entrada anticipada por internet, los pases a la Neocueva tienen aforo muy limitado.</li>
                         </ul>
                         <a href="https://www.cultura.gob.es/mnaltamira/home.html" target="_blank" class="btn-link">Web Oficial Altamira</a>
@@ -272,6 +388,19 @@
                 </div>
                 
                 <div class="activity">
+                    <!-- Carrusel: Playa Comillas -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="track-comillas">
+                            <div class="carousel-slide"><img src="https://img00.rhimg.com/h.24868284.795.500.0.ffffff.a5de044e.jpg" alt="Playa Comillas"></div>
+                            <div class="carousel-slide"><img src="https://www.turismocomillas.com/resources/cache/e51b83313b16d5f27d8809822d82e0d7-a084cf0b4904d7e35baaec76215d0e1b.jpg" alt="Comillas 2"></div>
+                            <div class="carousel-slide"><img src="https://aunclicdelaaventura.com/wp-content/uploads/2023/03/Capricho-de-Gaudi-Comillas.jpg" alt="Comillas 3"></div>
+                            <div class="carousel-slide"><img src="https://aunclicdelaaventura.com/wp-content/uploads/2023/03/Exterior-del-Palacio-de-Sobrellano-Comillas.jpg" alt="Comillas 4"></div>
+                            <div class="carousel-slide"><img src="https://aunclicdelaaventura.com/wp-content/uploads/2023/03/Puerta-de-acceso-Universidad-Pontificia-de-Comillas.jpg" alt="Comillas 5"></div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel('track-comillas', -1)">&#10094;</button>
+                        <button class="carousel-btn next" onclick="moveCarousel('track-comillas', 1)">&#10095;</button>
+                    </div>
+
                     <h3>Tarde: Playa de Comillas</h3>
                     <p>Un arenal precioso con un largo paseo marítimo asfaltado y rampas de acceso directo a la arena. Ofrece todos los servicios y un entorno sin barreras arquitectónicas.</p>
                     <div class="info-box">
@@ -279,7 +408,7 @@
                             <li><strong>💰 Precio:</strong> Espacio público natural y gratuito.</li>
                             <li><strong>📅 Info:</strong> El paseo marítimo es totalmente llano y accesible para carritos y personas mayores.</li>
                         </ul>
-                        <a href="https://turismocomillas.com/" target="_blank" class="btn-link">Turismo Comillas</a>
+                        <a href="https://aunclicdelaaventura.com/que-ver-en-comillas/" target="_blank" class="btn-link">Turismo Comillas</a>
                     </div>
                 </div>
                 
@@ -291,5 +420,33 @@
         </article>
     </div>
 
+    <script>
+        // Lógica de funcionamiento de los carruseles
+        const carouselState = {};
+
+        function moveCarousel(trackId, direction) {
+            const track = document.getElementById(trackId);
+            const slidesCount = track.children.length;
+            
+            // Inicializar el estado si es la primera vez que se hace clic
+            if (carouselState[trackId] === undefined) {
+                carouselState[trackId] = 0;
+            }
+            
+            // Actualizar índice
+            carouselState[trackId] += direction;
+            
+            // Bucle (Loop) de imágenes
+            if (carouselState[trackId] >= slidesCount) {
+                carouselState[trackId] = 0;
+            } else if (carouselState[trackId] < 0) {
+                carouselState[trackId] = slidesCount - 1;
+            }
+            
+            // Mover el contenedor
+            const percentage = -(carouselState[trackId] * 100);
+            track.style.transform = `translateX(${percentage}%)`;
+        }
+    </script>
 </body>
 </html>
