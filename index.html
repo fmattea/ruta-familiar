@@ -11,6 +11,7 @@
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --text-color: #333333;
+            --light-gray: #f4f6f8;
         }
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -43,7 +44,7 @@
             background: var(--card-bg);
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             overflow: hidden;
         }
         .day-header {
@@ -62,7 +63,7 @@
             padding: 1.5rem;
         }
         .activity {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             border-left: 4px solid var(--secondary-color);
             padding-left: 1rem;
         }
@@ -70,22 +71,47 @@
             margin-top: 0;
             color: var(--primary-color);
         }
-        .tips {
-            background-color: #eef2f5;
+        .info-box {
+            background-color: var(--light-gray);
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
             padding: 1rem;
-            border-radius: 5px;
-            font-size: 0.95rem;
             margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .info-box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .info-box li {
+            margin-bottom: 0.5rem;
+        }
+        .btn-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        .btn-link:hover {
+            background-color: #2980b9;
         }
         .map-btn {
-            display: inline-block;
+            display: block;
+            text-align: center;
             background-color: var(--primary-color);
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1rem;
             border-radius: 5px;
             font-weight: bold;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             transition: background 0.3s ease;
         }
         .map-btn:hover {
@@ -93,11 +119,18 @@
         }
         .cover-img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
+            background-color: #ddd; /* Por si tarda en cargar */
         }
-        ul {
-            padding-left: 1.2rem;
+        .tips {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            border: 1px solid #ffeeba;
         }
     </style>
 </head>
@@ -111,7 +144,8 @@
     <div class="container">
         <!-- DÍA 1 -->
         <article class="day-card">
-            <img src="https://picsum.photos/seed/castillo/900/300" alt="Castillo" class="cover-img">
+            <!-- Foto real de Trigueros del Valle -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Castillo_de_Trigueros_del_Valle_%28Valladolid%29.jpg" alt="Castillo de Trigueros del Valle" class="cover-img">
             <div class="day-header">
                 <h2>Día 1: Ruta de la Fantasía</h2>
                 <span>Norte de Valladolid</span>
@@ -119,45 +153,79 @@
             <div class="day-content">
                 <div class="activity">
                     <h3>Mañana: El Castillo Encantado (Trigueros del Valle)</h3>
-                    <p>Una fortaleza del siglo XV tomada por criaturas mágicas. Podréis recorrer las murallas y descubrir laboratorios de pociones ocultos. Ideal para que Milo interactúe con el entorno histórico de forma lúdica.</p>
+                    <p>Una fortaleza del siglo XV tomada por criaturas mágicas. Podréis recorrer las murallas y descubrir laboratorios de pociones ocultos. Ideal para interactuar con la historia de forma lúdica.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio:</strong> General ~6€ | Reducida (niños de 3 a 11 años) ~4.50€ | Menores de 3 gratis.</li>
+                            <li><strong>📅 Reserva:</strong> Muy recomendable comprar online para los fines de semana.</li>
+                        </ul>
+                        <a href="https://www.elcastilloencantado.es/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                    </div>
                 </div>
+                
                 <div class="activity">
                     <h3>Tarde: Puerto Espacial (Valoria la Buena)</h3>
-                    <p>Exposición inmersiva de ciencia ficción con figuras a escala real. Atravesaréis una cantina galáctica y un hangar de naves que os harán sentir dentro de The Mandalorian.</p>
+                    <p>Exposición inmersiva de ciencia ficción con figuras a escala real. Atravesaréis una cantina galáctica y un hangar de naves espaciales.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio:</strong> General ~9.50€ | Reducida ~7.50€. Existen packs combinados si compráis entrada también para el Castillo.</li>
+                            <li><strong>📅 Reserva:</strong> Recomendable reserva previa online.</li>
+                        </ul>
+                        <a href="https://www.puertoespacial.com/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                    </div>
                 </div>
+                
                 <div class="tips">
-                    <strong>💡 Plan de cena:</strong> Tras un día intenso de imaginación, el regreso a Valladolid es corto y perfecto para pedir sushi o unas hamburguesas por Glovo o PedidosYa y descansar tranquilamente en casa.
+                    <strong>💡 Plan de cena:</strong> Tras un día intenso de imaginación, el regreso a Valladolid es corto y perfecto para pedir sushi o unas hamburguesas a domicilio y descansar.
                 </div>
-                <a href="https://www.google.com/maps/dir/Valladolid/Trigueros+del+Valle/Valoria+la+Buena/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta en Google Maps</a>
+                <a href="https://www.google.com/maps/dir/Valladolid/Trigueros+del+Valle/Valoria+la+Buena/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta del Día 1 en Google Maps</a>
             </div>
         </article>
 
         <!-- DÍA 2 -->
         <article class="day-card">
-            <img src="https://picsum.photos/seed/penafiel/900/300" alt="Naturaleza y viñedos" class="cover-img">
+            <!-- Foto real de Peñafiel -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Castillo_de_Pe%C3%B1afiel.jpg" alt="Castillo de Peñafiel" class="cover-img">
             <div class="day-header">
                 <h2>Día 2: Historia y Naturaleza</h2>
                 <span>Este de Valladolid</span>
             </div>
             <div class="day-content">
                 <div class="activity">
-                    <h3>Mañana: Castillo de Peñafiel</h3>
+                    <h3>Mañana: Castillo de Peñafiel (Museo del Vino)</h3>
                     <p>Conocido como el "buque de piedra", este imponente castillo domina la Ribera del Duero y alberga el Museo Provincial del Vino. Las vistas desde sus patios son inmejorables.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio:</strong> Visita al castillo + museo ~6.60€ | Menores de 12 años suelen entrar gratis.</li>
+                            <li><strong>📅 Reserva:</strong> Necesaria si queréis hacer la visita guiada o cata; si es visita libre, se puede comprar en taquilla, pero mejor online para evitar filas.</li>
+                        </ul>
+                        <a href="https://www.valladolidesvino.es/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                    </div>
                 </div>
+                
                 <div class="activity">
                     <h3>Tarde: El Valle de los 6 Sentidos (Renedo de Esgueva)</h3>
                     <p>Un enorme parque en la naturaleza con más de 60 juegos, puentes y tirolinas. El entorno perfecto para correr y quemar energías antes de regresar a casa.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio:</strong> Adultos ~4€ | Niños (3 a 16 años) ~3€.</li>
+                            <li><strong>📅 Reserva:</strong> No suele ser estrictamente necesaria, la taquilla funciona bien.</li>
+                        </ul>
+                        <a href="https://www.diputaciondevalladolid.es/valle-de-los-seis-sentidos" target="_blank" class="btn-link">Ver Web Oficial</a>
+                    </div>
                 </div>
+                
                 <div class="tips">
-                    <strong>💡 Gastronomía:</strong> Estando en Peñafiel, es el escenario ideal para disfrutar de un buen lechazo asado en horno de leña al mediodía.
+                    <strong>💡 Gastronomía:</strong> Estando en Peñafiel, es el escenario ideal para reservar en un mesón local y disfrutar de un buen lechazo asado.
                 </div>
-                <a href="https://www.google.com/maps/dir/Valladolid/Castillo+de+Pe%C3%B1afiel/El+Valle+de+los+Seis+Sentidos/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta en Google Maps</a>
+                <a href="https://www.google.com/maps/dir/Valladolid/Castillo+de+Pe%C3%B1afiel/El+Valle+de+los+Seis+Sentidos/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta del Día 2 en Google Maps</a>
             </div>
         </article>
 
         <!-- DÍA 3 -->
         <article class="day-card">
-            <img src="https://picsum.photos/seed/olmedo/900/300" alt="Arquitectura en miniatura" class="cover-img">
+            <!-- Foto real Parque Mudéjar -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Parque_tem%C3%A1tico_del_Mud%C3%A9jar.jpg" alt="Parque Temático del Mudéjar en Olmedo" class="cover-img">
             <div class="day-header">
                 <h2>Día 3: Arquitectura en Miniatura</h2>
                 <span>Sur de Valladolid</span>
@@ -166,17 +234,26 @@
                 <div class="activity">
                     <h3>Mañana: Parque Temático del Mudéjar (Olmedo)</h3>
                     <p>Un paseo por un reino de gigantes. Reúne réplicas exactas a escala de los edificios de ladrillo más emblemáticos. Cuenta con trenes en miniatura y castillos a la medida de los más pequeños.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio:</strong> General ~4.50€ | Reducida (niños y mayores de 65 años) ~3.50€.</li>
+                            <li><strong>📅 Reserva:</strong> Se pueden adquirir directamente en taquilla sin problema.</li>
+                        </ul>
+                        <a href="https://www.pasionalmudejar.com/" target="_blank" class="btn-link">Ver Web Oficial</a>
+                    </div>
                 </div>
+                
                 <div class="tips">
-                    <strong>💡 Cierre del día:</strong> Al terminar la ruta por la mañana, la tarde queda libre. Es una gran oportunidad para encender el fuego y preparar un asado tradicional en familia.
+                    <strong>💡 Cierre del día:</strong> Al terminar la ruta por la mañana, la tarde queda libre. Es una gran oportunidad para preparar un asado tradicional al fuego en familia.
                 </div>
-                <a href="https://www.google.com/maps/dir/Valladolid/Parque+Tem%C3%A1tico+del+Mud%C3%A9jar+de+Castilla+y+Le%C3%B3n/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta en Google Maps</a>
+                <a href="https://www.google.com/maps/dir/Valladolid/Parque+Tem%C3%A1tico+del+Mud%C3%A9jar+de+Castilla+y+Le%C3%B3n/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta del Día 3 en Google Maps</a>
             </div>
         </article>
 
         <!-- DÍA 4 -->
         <article class="day-card">
-            <img src="https://picsum.photos/seed/comillas/900/300" alt="Costa Cantábrica" class="cover-img">
+            <!-- Foto real Santillana / Comillas -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Colegiata_de_Santillana_del_Mar_01.jpg" alt="Colegiata de Santillana del Mar" class="cover-img">
             <div class="day-header">
                 <h2>Día 4: El Cantábrico Accesible</h2>
                 <span>Santillana del Mar y Comillas</span>
@@ -184,19 +261,32 @@
             <div class="day-content">
                 <div class="activity">
                     <h3>Mañana: Santillana del Mar y Altamira</h3>
-                    <ul>
-                        <li><strong>Villa y Colegiata:</strong> Un paseo tranquilo por las calles medievales. <em>Nota: El empedrado requiere calzado cómodo y amortiguado.</em></li>
-                        <li><strong>Museo de Altamira:</strong> Visita a la Neocueva para ver los bisontes. Totalmente llano y climatizado, con bancos frecuentes.</li>
-                    </ul>
+                    <p>Un paseo tranquilo por las calles medievales de Santillana (requiere calzado cómodo por el empedrado) y visita a la Neocueva para ver los bisontes paleolíticos.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio Altamira:</strong> General 3€ | Gratis para menores de 18 y mayores de 65 (ideal para Milo y Teresa). Además, es gratis para todos los sábados desde las 14:00 y los domingos.</li>
+                            <li><strong>📅 Reserva Altamira:</strong> <strong>Imprescindible</strong> comprar la entrada anticipada por internet, los pases a la Neocueva tienen aforo muy limitado.</li>
+                        </ul>
+                        <a href="https://www.cultura.gob.es/mnaltamira/home.html" target="_blank" class="btn-link">Web Oficial Altamira</a>
+                    </div>
                 </div>
+                
                 <div class="activity">
                     <h3>Tarde: Playa de Comillas</h3>
                     <p>Un arenal precioso con un largo paseo marítimo asfaltado y rampas de acceso directo a la arena. Ofrece todos los servicios y un entorno sin barreras arquitectónicas.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>💰 Precio:</strong> Espacio público natural y gratuito.</li>
+                            <li><strong>📅 Info:</strong> El paseo marítimo es totalmente llano y accesible para carritos y personas mayores.</li>
+                        </ul>
+                        <a href="https://turismocomillas.com/" target="_blank" class="btn-link">Turismo Comillas</a>
+                    </div>
                 </div>
+                
                 <div class="tips">
-                    <strong>💡 Accesibilidad asegurada:</strong> Este itinerario garantiza que Teresa pueda disfrutar del paseo y moverse cómodamente, y que el uso del carrito sea mucho más llevadero. El trayecto de vuelta por la A-67 es directo hasta casa.
+                    <strong>💡 Accesibilidad asegurada:</strong> Este itinerario garantiza que las rodillas descansen y que el uso del carrito sea mucho más llevadero. El trayecto de vuelta por la autovía A-67 es directo.
                 </div>
-                <a href="https://www.google.com/maps/dir/Valladolid/Santillana+del+Mar/Museo+de+Altamira/Playa+de+Comillas/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta en Google Maps</a>
+                <a href="https://www.google.com/maps/dir/Valladolid/Santillana+del+Mar/Museo+de+Altamira/Playa+de+Comillas/Valladolid" target="_blank" class="map-btn">📍 Abrir Ruta del Día 4 en Google Maps</a>
             </div>
         </article>
     </div>
